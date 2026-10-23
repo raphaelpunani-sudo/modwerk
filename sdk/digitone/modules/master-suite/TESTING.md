@@ -25,7 +25,7 @@ Total 576,078 checks, 0 failed. Two real bugs were found and fixed on the way: a
 - CPU: not measured. Per sample the cost is 5 multiplies per active biquad per channel, with at most 5 active biquads (4 EQ bands and the filter). Not compared with Spring Reverb.
 
 ## Open items (needed before it can run)
-1. **Master mix address and format (OS 1.44).** Where the render leaves the stereo mix, the frames per block and the sample format. This comes from the owner's own firmware, which must not be committed. Fill `MS_MIX_ADDR` and `MS_MIX_FRAMES` in `src/main.c`.
+1. **Master mix address and format (OS 1.44).** Where the render leaves the stereo mix, the frames per block and the sample format. This comes from the owner's own firmware, which must not be committed. Fill `MS_MIX_ADDR` and `MS_MIX_FRAMES` in `src/main.c`. `tools/find-mix-site.ts` lists candidates from your own OS file (addresses, counts and hashes only); it was tested on a synthetic OS file with planted references (`tests/tool/run.sh`), never on a real OS file. The real packed-section path comes from the repo's existing reader and was not exercised by that test. It does not decide which candidate is the master mix: that still needs a look in the emulator.
 2. **Which render hook sees the final mix.** `ev_render_out` is used; whether the main outs, headphones and USB all carry it is unknown.
 3. **Sample rate.** 48 kHz is assumed. If wrong, regenerate with `python3 -B tools/gen_tables.py > src/ms_tables.h`.
 4. **The page.** Registering one mod page after the External Mixer pages, drawing it, reading key and encoder events, and the page-order question (second page when dual parameter is off).
