@@ -1,10 +1,20 @@
 {
   "schemaVersion": 1,
-  "sources": ["src/main.c"],
+  "sources": [
+    "src/main.c",
+    "src/ms_dsp.c",
+    "src/ms_ui.c"
+  ],
   "defsym": {},
   "cflags": [],
   "weak": [],
-  "subscribe": [{ "event": "ev_draw", "fn": "mod_draw", "order": 50 }],
+  "subscribe": [
+    {
+      "event": "ev_render_out",
+      "fn": "ms_render_out",
+      "order": 50
+    }
+  ],
   "contribute": [],
   "collections": {},
   "copied": [],
@@ -12,5 +22,11 @@
   "claims": [],
   "requires": [],
   "derive": null,
-  "releases": { "1.44": { "defsym": {}, "cflags": [], "sites": [] } }
+  "releases": {
+    "1.44": {
+      "defsym": {},
+      "cflags": [],
+      "sites": []
+    }
+  }
 }

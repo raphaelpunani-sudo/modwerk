@@ -1,0 +1,10 @@
+[
+  {
+    "version": "0.1.0-experimental",
+    "date": "2026-10-23",
+    "changes": [
+      "First draft of Master Suite: a fixed-point filter (HP/LP/BP with resonance) and a 4-band EQ, with a control model for fast press-and-turn editing.",
+      "Not usable on a unit yet: the master mix address, the page and its drawing are still to be written. The module does nothing until then. Tested on a computer only."
+    ]
+  }
+]
